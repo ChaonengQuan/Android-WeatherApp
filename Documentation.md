@@ -1,9 +1,11 @@
 # Weather App
 
 ## Overview
-Weather App is a Java Android mobile application that enables the user to browse weather forecast information based on the city entered. 
+Weather App is a Java Android mobile application that enables the user to browse weather forecast information based on the city entered. It supports both phone and tablet with different layout on both devices. 
 
-Team member: Chaoneng Quan, Thomas Ruff
+Weather forecast information is retrieved from [National Weather Service (NWS)](https://www.weather.gov/documentation/services-web-api) API.
+
+Team members: Thomas Ruff, Chaoneng Quan
 
 ## User Interface
 1. UI layout
@@ -18,9 +20,10 @@ Team member: Chaoneng Quan, Thomas Ruff
 
 ## Technical Details
 1. Fragment
+    This app will user Fragment in order to support both phone and tablet device. On a small screen size device it will only display one Fragment at a time. On a large screen size device it can display two Fragments on same screen.
 
     1. Weather Fragment
-    2. Search Fragment (maybe)
+    2. Search Fragment
 
 2. Content Provider
 
@@ -34,7 +37,7 @@ Team member: Chaoneng Quan, Thomas Ruff
 
 4. Weather API Web Service
 
-    This app will use the [National Weather Service (NWS)](https://www.weather.gov/documentation/services-web-api) API to retrieve weekly weather forecast information. 
+    This app will use the National Weather Service (NWS) API to retrieve weekly weather forecast information. 
     
     NWS API divide US map into 2.5km grids, and each grid is label with x and y index. To use this API we need to provide three parameters: office, gridX, gridY.
 
@@ -72,14 +75,41 @@ Team member: Chaoneng Quan, Thomas Ruff
     - Windy: moving leaves on the screen
     - Snow: snow flakes on the screen
 
+6. Project Structure
+
+    ```bash
+    ├── MainActivity
+    ├── WeatherFragment
+    │   └──  AsyncTask
+    ├── SearchFragment
+    │   └──  AsyncTask
+    ├── ContentProvider
+    └── WeatherInfo
+    ```
+
+    - MainActivity
+
+        Setup Fragments and entry point of each button's onClick functions.
+
+    - ContentProvider
+
+        Retrieve contact email and send Implicit Intent
+    
+    - WeatherInfo
+        
+        A object that stores the weather forecast information, including day, temperature, temperatureUnit, windSpeed, weatherIconURL, shortForecast, detailedForecast
+
+
 ## Timeline
 - Project Document - 11/16/2020
 - Milestone1 - 11/23/2020
     
     - Main UI, Web API, Content Provider should be done
+    - Estimated work hours: 5 hours
 
 - Checkpoint Meeting - 11/30/2020 
     
     - Finish Minimal viable product should be done
+    - Estimated work hours: 5 hours
 
 - Project presentation - 12/7/2020 and 12/9/2020
