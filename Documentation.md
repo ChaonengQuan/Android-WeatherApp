@@ -18,6 +18,8 @@ Team members: Thomas Ruff, Chaoneng Quan
 
 3. Prototype UI
 
+![UI Preview](https://imgur.com/a/zIBdzKp)
+
 ## Technical Details
 1. Fragment
     This app will user Fragment in order to support both phone and tablet device. On a small screen size device it will only display one Fragment at a time. On a large screen size device it can display two Fragments on same screen.
