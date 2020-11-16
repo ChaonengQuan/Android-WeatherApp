@@ -18,7 +18,7 @@ Team members: Thomas Ruff, Chaoneng Quan
 
 3. Prototype UI
 
-![UI Preview](https://github.com/tnruff/csc317-weatherapp/blob/dev/uipreview.PNG)
+![UI Preview](https://github.com/tnruff/csc317-weatherapp/blob/dev/uipreview.PNG | width=300)
 
 ## Technical Details
 1. Fragment
