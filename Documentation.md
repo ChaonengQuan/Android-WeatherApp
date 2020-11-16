@@ -7,8 +7,14 @@ Team member: Chaoneng Quan, Thomas Ruff
 
 ## User Interface
 1. UI layout
-2. xxx
-3. etc
+
+    The initial screen shown to the user will consist of a large display of the temperature and weather for the chosen city. The default is loaded from the shared preferences. Below this main information, we can display additional forecasts for the rest of the week. Various sun/moon/cloud icons will be used for displaying the weather on each day. The main screen will then have a "Get weather" button to display the forecast for the user's current location. Finally on the main screen will be a "Share" button to allow the user to email a picture of the forecast to one of their contacts.
+
+2. Assets
+    
+    The background of the forecast will make use of rain, sun, snow, or other applicable animations depending on the current weather. Icons will be used from icons8 for the app.
+
+3. Prototype UI
 
 ## Technical Details
 1. Fragment
