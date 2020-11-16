@@ -14,11 +14,11 @@ Team members: Thomas Ruff, Chaoneng Quan
 
 2. Assets
     
-    The background of the forecast will make use of rain, sun, snow, or other applicable animations depending on the current weather. Icons will be used from icons8 for the app.
+    The background of the forecast will make use of rain, sun, snow, or other applicable animations depending on the current weather. Icons will be used from Icons8 for the app.
 
 3. Prototype UI
 
-![UI Preview](https://github.com/tnruff/csc317-weatherapp/blob/dev/uipreview.PNG)
+![UI Preview](https://github.com/tnruff/csc317-weatherapp/blob/dev/uipreview.PNG =300x400)
 
 ## Technical Details
 1. Fragment
