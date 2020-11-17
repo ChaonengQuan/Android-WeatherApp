@@ -1,7 +1,12 @@
 # Weather App
 
 ## Overview
-Weather App is a Java Android mobile application that enables the user to browse weather forecast information based on the city entered. It supports both phone and tablet with different layout on both devices. 
+
+Github Link: https://github.com/tnruff/csc317-weatherapp
+
+Weather App is a Java Android mobile application that enables the user to browse weather forecast information based on the city entered, and share the current weather with their contacts by email.
+
+It supports both phones and tablets with different layouts on both devices. Different animations will be shown on the screen based on the current weather.
 
 Weather forecast information is retrieved from [National Weather Service (NWS)](https://www.weather.gov/documentation/services-web-api) API.
 
@@ -22,26 +27,28 @@ Team members: Thomas Ruff, Chaoneng Quan
 
 ## Technical Details
 1. Fragment
-    This app will user Fragment in order to support both phone and tablet device. On a small screen size device it will only display one Fragment at a time. On a large screen size device it can display two Fragments on same screen.
+    This app will use Fragment to support both phone and tablet devices. On a small screen size device, it will only display one Fragment at a time. On a large screen size device, it can display two Fragments on the same screen.
 
     1. Weather Fragment
+        Contains the UI layout View objects
     2. Search Fragment
+        Contains the search layout View objects
 
 2. Content Provider
 
-    This app wil use the contacts content provider in Android to display the list of contacts, then allows user to click on the contact to share with. After user clicked on the contact to share, it will then get the email address for a given content in order to setup the intent to send an email.
+    This app will use the contacts content provider in Android to display the list of contacts, then allows the user to click on the contact to share with. After the user clicked on the contact to share, it will then get the email address for a given content to set up the intent to send an email.
 
 3. Implicit Intent
     
     This app will only support sharing via email, rather than any messaging app in general. It will also support sending an image to a specific email (the email of the desired contact), rather than just a general email.
 
-    In another word, once user clicked on the share button and chosen the contact to share with. It will pre-fill the email body with a screenshot of the current weather, and pre-fill the destination address with chosen contact's email address.
+    In another word, once the user clicked on the share button and chosen the contact to share with. It will pre-fill the email body with a screenshot of the current weather, and pre-fill the destination address with the chosen contact's email address.
 
 4. Weather API Web Service
 
     This app will use the National Weather Service (NWS) API to retrieve weekly weather forecast information. 
     
-    NWS API divide US map into 2.5km grids, and each grid is label with x and y index. To use this API we need to provide three parameters: office, gridX, gridY.
+    NWS API divides the US map into 2.5km grids, and each grid is a label with x and y index. To use this API we need to provide three parameters: office, gridX, gridY.
 
     This app will first use LocationManager object in Android to get current latitude and longitude, then use latitude and longitude to get the office, gridX, gridY information from the API, then finally use office, gridX, gridY to get weekly weather forecast information.
 
@@ -50,7 +57,7 @@ Team members: Thomas Ruff, Chaoneng Quan
     https://api.weather.gov/gridpoints/{office}/{gridX},{gridY}/forecast
     ```
 
-    Snippet of JSON data retrieved:
+    A snippet of JSON data retrieved:
     ```
     {
         "number": 3,
@@ -71,11 +78,11 @@ Team members: Thomas Ruff, Chaoneng Quan
     
 5. Animation
 
-    Different animation will be displayed based on the current weather of the day.
+    Different animations will be displayed based on the current weather of the day.
     - Sunny: sun on the screen
-    - Rain: rain drops on the screen
+    - Rain: raindrops on the screen
     - Windy: moving leaves on the screen
-    - Snow: snow flakes on the screen
+    - Snow: snowflakes on the screen
 
 6. Project Structure
 
@@ -91,15 +98,27 @@ Team members: Thomas Ruff, Chaoneng Quan
 
     - MainActivity
 
-        Setup Fragments and entry point of each button's onClick functions.
+        - Setup Fragments and the entry point of each button's onClick functions.
+
+    - WeatherFragment
+    
+        - Contains the UI layout View objects
+
+    - SearchFragment
+    
+        - Contains the search layout View objects
+
+    - AsyncTask
+
+        - Handles the web request in a different thread, and store the information retrieved asynchronously  
 
     - ContentProvider
 
-        Retrieve contact email and send Implicit Intent
+        - Retrieve contact email and send Implicit Intent
     
     - WeatherInfo
         
-        A object that stores the weather forecast information, including day, temperature, temperatureUnit, windSpeed, weatherIconURL, shortForecast, detailedForecast
+        - An object that stores the weather forecast information, including day, temperature, temperatureUnit, windSpeed, weatherIconURL, shortForecast, detailedForecast
 
 
 ## Timeline
@@ -115,3 +134,5 @@ Team members: Thomas Ruff, Chaoneng Quan
     - Estimated work hours: 5 hours
 
 - Project presentation - 12/7/2020 and 12/9/2020
+    - Final product deliver 
+
