@@ -83,12 +83,13 @@ public class DisplayFragment extends Fragment {
             try {
                 JSONArray weeklyJSONArray = jsonObject.getJSONObject("properties").getJSONArray("periods");
                 //System.out.println(weeklyJSONArray);
-                /*update weekly weather*/
+
                 //today's weather
                 JSONObject todayJSONObject = (JSONObject) weeklyJSONArray.get(0);
                 TextView todayTemperature = getActivity().findViewById(R.id.temperature);
                 todayTemperature.setText(todayJSONObject.getString("temperature"));
 
+                /*update weekly weather*/
                 //days after 'today'
                 for(int i = 0; i < nameIdArray.length; i++){
                     TextView name = getActivity().findViewById(nameIdArray[i]);
@@ -101,7 +102,6 @@ public class DisplayFragment extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
 
         }
 
