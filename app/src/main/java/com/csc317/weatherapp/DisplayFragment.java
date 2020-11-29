@@ -19,8 +19,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DisplayFragment extends Fragment {
+
+    Integer[] nameIdArray = new Integer[]{R.id.day_1_name, R.id.day_2_name, R.id.day_3_name, R.id.day_4_name, R.id.day_5_name, R.id.day_6_name};
+    Integer[] tempIdArray = new Integer[]{R.id.day_1_temp, R.id.day_2_temp, R.id.day_3_temp, R.id.day_4_temp, R.id.day_5_temp, R.id.day_6_temp};
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         WeatherForecastAsyncTask webRequest = new WeatherForecastAsyncTask();
@@ -77,50 +83,20 @@ public class DisplayFragment extends Fragment {
             try {
                 JSONArray weeklyJSONArray = jsonObject.getJSONObject("properties").getJSONArray("periods");
                 //System.out.println(weeklyJSONArray);
-
                 /*update weekly weather*/
-
                 //today's weather
                 JSONObject todayJSONObject = (JSONObject) weeklyJSONArray.get(0);
                 TextView todayTemperature = getActivity().findViewById(R.id.temperature);
                 todayTemperature.setText(todayJSONObject.getString("temperature"));
 
-                //the day after 'today'
-                TextView day_1_name = getActivity().findViewById(R.id.day_1_name);
-                TextView day_1_temp =  getActivity().findViewById(R.id.day_1_temp);
-                JSONObject day1JSONObject = (JSONObject) weeklyJSONArray.get(2);
-                day_1_name.setText(day1JSONObject.getString("name"));
-                day_1_temp.setText(day1JSONObject.getString("temperature"));
-
-                TextView day_2_name = getActivity().findViewById(R.id.day_2_name);
-                TextView day_2_temp =  getActivity().findViewById(R.id.day_2_temp);
-                JSONObject day2JSONObject = (JSONObject) weeklyJSONArray.get(4);
-                day_2_name.setText(day2JSONObject.getString("name"));
-                day_2_temp.setText(day2JSONObject.getString("temperature"));
-
-                TextView day_3_name = getActivity().findViewById(R.id.day_3_name);
-                TextView day_3_temp =  getActivity().findViewById(R.id.day_3_temp);
-                JSONObject day3JSONObject = (JSONObject) weeklyJSONArray.get(6);
-                day_3_name.setText(day3JSONObject.getString("name"));
-                day_3_temp.setText(day3JSONObject.getString("temperature"));
-
-                TextView day_4_name = getActivity().findViewById(R.id.day_4_name);
-                TextView day_4_temp =  getActivity().findViewById(R.id.day_4_temp);
-                JSONObject day4JSONObject = (JSONObject) weeklyJSONArray.get(8);
-                day_4_name.setText(day4JSONObject.getString("name"));
-                day_4_temp.setText(day4JSONObject.getString("temperature"));
-
-                TextView day_5_name = getActivity().findViewById(R.id.day_5_name);
-                TextView day_5_temp =  getActivity().findViewById(R.id.day_5_temp);
-                JSONObject day5JSONObject = (JSONObject) weeklyJSONArray.get(10);
-                day_5_name.setText(day5JSONObject.getString("name"));
-                day_5_temp.setText(day5JSONObject.getString("temperature"));
-
-                TextView day_6_name = getActivity().findViewById(R.id.day_6_name);
-                TextView day_6_temp =  getActivity().findViewById(R.id.day_6_temp);
-                JSONObject day6JSONObject = (JSONObject) weeklyJSONArray.get(12);
-                day_6_name.setText(day6JSONObject.getString("name"));
-                day_6_temp.setText(day6JSONObject.getString("temperature"));
+                //days after 'today'
+                for(int i = 0; i < nameIdArray.length; i++){
+                    TextView name = getActivity().findViewById(nameIdArray[i]);
+                    TextView temp =  getActivity().findViewById(tempIdArray[i]);
+                    JSONObject day1JSONObject = (JSONObject) weeklyJSONArray.get((i+1)*2);
+                    name.setText(day1JSONObject.getString("name"));
+                    temp.setText(day1JSONObject.getString("temperature"));
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
