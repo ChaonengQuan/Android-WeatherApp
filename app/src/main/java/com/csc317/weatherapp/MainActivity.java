@@ -4,25 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.ImageView;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     private DisplayFragment weatherDisplay;
+    private ContactSelectFragment contactSelectFragment;
+    private Uri screenshotUri = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
             screenshot = File.createTempFile(imageFileName, ".png", storageDir);
             absolutePath = screenshot.getAbsolutePath();
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!absolute path:"+absolutePath);
+            //System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!absolute path:"+absolutePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Uri screenshotUri = FileProvider.getUriForFile(this, "com.csc317.weatherapp.fileprovider", screenshot);
+        screenshotUri = FileProvider.getUriForFile(this, "com.csc317.weatherapp.fileprovider", screenshot);
 
-        //Step4: Use Implicit intent to share the screenshot
-        Intent intent = new Intent(android.content.Intent.ACTION_SEND);
-        // The uri should be the uri of the screenshot image
-        intent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setType("image/png");
-        startActivity(intent);
+        //Step4: Create a Contact List View fragment, passing in the uri
+        contactSelectFragment = ContactSelectFragment.newInstance(screenshotUri.toString());
+        //Replace the layout in main with this contactFragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.weather_layout_container, contactSelectFragment);
+        transaction.addToBackStack(null);   //can return to drawing
+        transaction.commit();
     }
 }
