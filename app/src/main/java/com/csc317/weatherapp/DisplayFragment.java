@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import org.json.JSONArray;
@@ -134,6 +135,7 @@ public class DisplayFragment extends Fragment {
 
                 //today's weather
                 JSONObject todayJSONObject = (JSONObject) weeklyJSONArray.get(0);
+                new WeatherDownloadIcon().execute(new URL(todayJSONObject.getString("icon")));
                 TextView todayTemperature = getActivity().findViewById(R.id.temperature);
                 todayTemperature.setText(todayJSONObject.getString("temperature"));
 
@@ -147,7 +149,7 @@ public class DisplayFragment extends Fragment {
                     temp.setText(day1JSONObject.getString("temperature"));
                 }
 
-            } catch (JSONException e) {
+            } catch (JSONException | MalformedURLException e) {
                 e.printStackTrace();
             }
 
