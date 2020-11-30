@@ -137,7 +137,7 @@ public class DisplayFragment extends Fragment {
                 JSONObject todayJSONObject = (JSONObject) weeklyJSONArray.get(0);
                 new WeatherDownloadIcon().execute(new URL(todayJSONObject.getString("icon")));
                 TextView todayTemperature = getActivity().findViewById(R.id.temperature);
-                todayTemperature.setText(todayJSONObject.getString("temperature"));
+                todayTemperature.setText(todayJSONObject.getString("temperature") + "\u2109");
 
                 /*update weekly weather*/
                 //days after 'today'
@@ -146,7 +146,7 @@ public class DisplayFragment extends Fragment {
                     TextView temp =  getActivity().findViewById(tempIdArray[i]);
                     JSONObject day1JSONObject = (JSONObject) weeklyJSONArray.get((i+1)*2);
                     name.setText(day1JSONObject.getString("name"));
-                    temp.setText(day1JSONObject.getString("temperature"));
+                    temp.setText(day1JSONObject.getString("temperature") + "\u2109");
                 }
 
             } catch (JSONException | MalformedURLException e) {
