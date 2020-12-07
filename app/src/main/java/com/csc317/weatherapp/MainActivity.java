@@ -5,6 +5,8 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.graphics.Bitmap;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,6 +17,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +35,21 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
         setContentView(R.layout.activity_main);
+
+//        //test geocoder
+//        Geocoder geocoder = new Geocoder(this);
+//
+//        try {
+//
+//            List<Address> addressList = geocoder.getFromLocationName("Tucson", 3);
+//            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//            System.out.println(addressList.get(0));
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
     }
 
     /**
