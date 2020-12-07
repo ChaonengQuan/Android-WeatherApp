@@ -128,6 +128,7 @@ public class DisplayFragment extends Fragment {
          */
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
+            boolean isDayTime = false;
 
             try {
                 JSONArray weeklyJSONArray = jsonObject.getJSONObject("properties").getJSONArray("periods");
@@ -139,14 +140,22 @@ public class DisplayFragment extends Fragment {
                 TextView todayTemperature = getActivity().findViewById(R.id.temperature);
                 todayTemperature.setText(todayJSONObject.getString("temperature") + "\u2109");
 
+                isDayTime = !todayJSONObject.getString("name").toLowerCase().contains("night");
+                //System.out.println("!!!!!!!!!!!!!!!!!!!!!!!isDayTime" + isDayTime);
+
                 /*update weekly weather*/
                 //days after 'today'
                 for(int i = 0; i < nameIdArray.length; i++){
                     TextView name = getActivity().findViewById(nameIdArray[i]);
                     TextView temp =  getActivity().findViewById(tempIdArray[i]);
-                    JSONObject day1JSONObject = (JSONObject) weeklyJSONArray.get((i+1)*2);
-                    name.setText(day1JSONObject.getString("name"));
-                    temp.setText(day1JSONObject.getString("temperature") + "\u2109");
+                    JSONObject dayJSONObject;
+                    if(isDayTime){
+                        dayJSONObject = (JSONObject) weeklyJSONArray.get((i+1)*2); //i=0 -> get(2), i=1 -> get(4), i=2 -> get(6)
+                    }else{
+                        dayJSONObject = (JSONObject) weeklyJSONArray.get((i+1)*2-1); //i=0 -> get(1), i=1 -> get(3), i=2 -> get(5)
+                    }
+                    name.setText(dayJSONObject.getString("name"));
+                    temp.setText(dayJSONObject.getString("temperature") + "\u2109");
                 }
 
             } catch (JSONException | MalformedURLException e) {

@@ -154,9 +154,18 @@
         android:id="@+id/share_button"
         android:text="SHARE"
         app:layout_constraintTop_toBottomOf="@id/day_6_name"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:onClick="shareButtonOnClick"/>
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="search weather by city"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/share_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
