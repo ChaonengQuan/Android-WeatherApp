@@ -3,12 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_forecast"
+        android:alpha=".5" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/city_label"
         android:text="Tucson"
         android:textSize="40dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="20dp"
@@ -20,6 +27,7 @@
         android:id="@+id/temperature"
         android:text="80&#xb0;"
         android:textSize="100dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/city_label"/>
@@ -39,6 +47,7 @@
         android:id="@+id/day_1_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
         app:layout_constraintTop_toBottomOf="@id/weather_icon"/>
@@ -49,6 +58,7 @@
         android:id="@+id/day_1_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/weather_icon"/>
@@ -58,6 +68,7 @@
         android:id="@+id/day_2_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_1_name"/>
@@ -68,6 +79,7 @@
         android:id="@+id/day_2_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_1_temp"/>
@@ -77,6 +89,7 @@
         android:id="@+id/day_3_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_2_name"/>
@@ -87,6 +100,7 @@
         android:id="@+id/day_3_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_2_temp"/>
@@ -96,6 +110,7 @@
         android:id="@+id/day_4_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_3_name"/>
@@ -106,6 +121,7 @@
         android:id="@+id/day_4_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_3_temp"/>
@@ -115,6 +131,7 @@
         android:id="@+id/day_5_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_4_name"/>
@@ -125,6 +142,7 @@
         android:id="@+id/day_5_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_4_temp"/>
@@ -134,6 +152,7 @@
         android:id="@+id/day_6_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_5_name"/>
@@ -144,6 +163,7 @@
         android:id="@+id/day_6_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_5_temp"/>

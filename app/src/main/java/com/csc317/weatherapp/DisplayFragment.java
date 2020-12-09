@@ -2,6 +2,7 @@ package com.csc317.weatherapp;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -200,6 +201,19 @@ public class DisplayFragment extends Fragment {
                     name.setText(dayJSONObject.getString("name"));
                     temp.setText(dayJSONObject.getString("temperature") + "\u2109");
                 }
+
+                /*update background animation*/
+                String weather = todayJSONObject.getString("shortForecast").toLowerCase();
+                ImageView background = (ImageView) getView().findViewById(R.id.background_forecast);
+                if(weather.contains("rain") || weather.contains("cloud")) {
+                    background.setBackgroundResource(R.drawable.rain_animation);
+                } else if(weather.contains("snow") || weather.contains("hail") || weather.contains("blizzard")) {
+                    background.setBackgroundResource(R.drawable.snow_animation);
+                } else {
+                    background.setBackgroundResource(R.drawable.default_animation);
+                }
+                AnimationDrawable frameAnimation = (AnimationDrawable) background.getBackground();
+                frameAnimation.start();
 
             } catch (JSONException | MalformedURLException e) {
                 e.printStackTrace();

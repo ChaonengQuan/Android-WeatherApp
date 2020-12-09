@@ -1,0 +1,23 @@
+<animation-list android:id="@+id/selected"
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/default0" android:duration="50" />
+    <item android:drawable="@drawable/default1" android:duration="50" />
+    <item android:drawable="@drawable/default2" android:duration="50" />
+    <item android:drawable="@drawable/default3" android:duration="50" />
+    <item android:drawable="@drawable/default4" android:duration="50" />
+    <item android:drawable="@drawable/default5" android:duration="50" />
+    <item android:drawable="@drawable/default6" android:duration="50" />
+    <item android:drawable="@drawable/default7" android:duration="50" />
+    <item android:drawable="@drawable/default8" android:duration="50" />
+    <item android:drawable="@drawable/default9" android:duration="50" />
+    <item android:drawable="@drawable/default10" android:duration="50" />
+    <item android:drawable="@drawable/default11" android:duration="50" />
+    <item android:drawable="@drawable/default12" android:duration="50" />
+    <item android:drawable="@drawable/default13" android:duration="50" />
+    <item android:drawable="@drawable/default14" android:duration="50" />
+    <item android:drawable="@drawable/default15" android:duration="50" />
+    <item android:drawable="@drawable/default16" android:duration="50" />
+    <item android:drawable="@drawable/default17" android:duration="50" />
+    <item android:drawable="@drawable/default18" android:duration="50" />
+</animation-list>
