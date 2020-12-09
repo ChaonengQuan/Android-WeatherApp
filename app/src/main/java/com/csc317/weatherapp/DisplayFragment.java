@@ -121,7 +121,7 @@ public class DisplayFragment extends Fragment {
          */
         @Override
         protected JSONObject doInBackground(String... params) {
-            System.out.println("!!!!!!I am in the AsyncTask!!!!!!");
+            //System.out.println("!!!!!!I am in the AsyncTask!!!!!!");
 
             JSONObject jsonObject = null;
             try {
