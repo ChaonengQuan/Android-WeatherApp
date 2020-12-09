@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Update weather info based the city name user entered
+     * Returns an array of Addresses that are known to describe the named location,
+     * which may be a place name such as "Dalvik, Iceland", an address such as "1600 Amphitheatre Parkway, Mountain View, CA", an airport code such as "SFO", etc..
      */
     public void searchWeatherByCity(View view) {
         //Step1: Update the TextView city label
@@ -81,6 +83,11 @@ public class MainActivity extends AppCompatActivity {
         Geocoder geocoder = new Geocoder(this);
         try {
             List<Address> addressList = geocoder.getFromLocationName(cityNameEntered, 3);
+
+            if(addressList == null || addressList.size() == 0){
+                System.out.println("DEBUG: you have an error in search text !!!!!!!!!!!!!!!!!!");
+                return;
+            }
             //System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             Address targetAddress = addressList.get(0);
             latitude = String.format(Locale.US, "%.4f", targetAddress.getLatitude());
