@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -12,33 +13,58 @@
         android:textSize="40dp"
         android:textColor="@color/black"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    
+
     <TextView
+        android:id="@+id/short_forecast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/short_forecast"
-        android:text="Short forecast"
-        android:textSize="30dp"
-        android:textColor="@color/black"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Short forecast"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/day_label" />
 
     <TextView
+        android:id="@+id/short_forecast_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/detailed_forecast"
-        android:text="Detailed forecast for tablet mode"
-        android:textSize="25dp"
-        android:textColor="@color/black"
+        android:text="placeholder"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/short_forecast"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/short_forecast" />
+
+    <TextView
+        android:id="@+id/detailed_forecast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Detailed forecast"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/short_forecast_content" />
+
+    <TextView
+        android:id="@+id/detailed_forecast_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Detailed forecast content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_forecast" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

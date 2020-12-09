@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         if(isBigScreen()) {
             transaction.replace(R.id.tablet_forecast_container, tabletForecastFragment);
         }
-        transaction.addToBackStack(null);
+        //transaction.addToBackStack(null);
         transaction.commit();
         setContentView(R.layout.activity_main);
     }
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.edit_text);
         String cityNameEntered = editText.getText().toString();
         TextView cityLabel = findViewById(R.id.city_label);
-        cityLabel.setText(cityNameEntered);
+        cityLabel.setText(cityNameEntered.trim());
 
         //Step2: Get the longitude and latitude using Geocoder class
         Geocoder geocoder = new Geocoder(this);
@@ -126,6 +126,21 @@ public class MainActivity extends AppCompatActivity {
         //Replace the layout in main with this contactFragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.weather_layout_container, contactSelectFragment);
+        transaction.addToBackStack(null);   //can return to drawing
+        transaction.commit();
+    }
+
+    public void showDetailedForecast(View view) {
+        String dayName = (String) ((TextView)view).getText();
+        //System.out.println(dayName);
+
+        TabletForecastFragment tabletForecastFragment = new TabletForecastFragment();
+        tabletForecastFragment.setDayName(dayName);
+        tabletForecastFragment.setLongitude(longitude);
+        tabletForecastFragment.setLatitude(latitude);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.weather_layout_container, tabletForecastFragment);
         transaction.addToBackStack(null);   //can return to drawing
         transaction.commit();
     }
