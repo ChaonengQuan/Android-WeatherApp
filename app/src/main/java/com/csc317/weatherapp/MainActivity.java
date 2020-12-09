@@ -155,4 +155,9 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);   //can return to drawing
         transaction.commit();
     }
+
+    public void showHelp(View view) {
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
+    }
 }
