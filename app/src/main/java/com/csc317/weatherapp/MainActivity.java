@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private DisplayFragment weatherDisplay;
+    private TabletForecastFragment tabletForecastFragment;
     private ContactSelectFragment contactSelectFragment;
     private Uri screenshotUri = null;
     private String latitude = "32.2226";
@@ -38,13 +40,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weatherDisplay = new DisplayFragment();
+        tabletForecastFragment = new TabletForecastFragment();
         weatherDisplay.setLatitude(latitude);
         weatherDisplay.setLongitude(longitude);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.weather_layout_container,weatherDisplay);
+        if(isBigScreen()) {
+            transaction.replace(R.id.tablet_forecast_container, tabletForecastFragment);
+        }
         transaction.addToBackStack(null);
         transaction.commit();
         setContentView(R.layout.activity_main);
+    }
+
+    private boolean isBigScreen() {
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        return (metrics.widthPixels / metrics.xdpi) > 5;
     }
 
 
