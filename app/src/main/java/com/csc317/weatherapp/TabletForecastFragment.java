@@ -35,20 +35,27 @@ public class TabletForecastFragment extends Fragment {
         return inflater.inflate(R.layout.detailed_forecast, container, false);
     }
 
-    public void setDayName(String dayName) { this.dayName = dayName; }
-    public void setLatitude(String latitude) { this.latitude = latitude; }
-    public void setLongitude(String longitude) { this.longitude = longitude; }
+    public void setDayName(String dayName) {
+        this.dayName = dayName;
+    }
 
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 
 
     /**
      * Private Inner Class
      * Make web request based on the office location and gridX/Y coordinates parameters
      * Parse URL request result into a JSONObject.
-     *
+     * <p>
      * Parameters:
-     *          params[0]   -   the office code (e.g. TWC)
-     *          params[1]   -   the gridX and gridY (e.g. 91,48)
+     * params[0]   -   the office code (e.g. TWC)
+     * params[1]   -   the gridX and gridY (e.g. 91,48)
      */
     private class WeatherForecastAsyncTask extends AsyncTask<String, Void, JSONObject> {
 
@@ -89,7 +96,7 @@ public class TabletForecastFragment extends Fragment {
                 /*Make the 2nd API call to get the weather information*/
                 StringBuilder json = new StringBuilder();
                 String line;
-                URL url = new URL("https://api.weather.gov/gridpoints/"+gridID+"/"+gridX+","+gridY+"/forecast"); //Hard code params for Tucson
+                URL url = new URL("https://api.weather.gov/gridpoints/" + gridID + "/" + gridX + "," + gridY + "/forecast"); //Hard code params for Tucson
                 URLConnection urlConn = url.openConnection();
                 urlConn.setRequestProperty("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36 OPR/71.0.3770.284");
                 BufferedReader in = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
@@ -117,17 +124,40 @@ public class TabletForecastFragment extends Fragment {
                 JSONArray weeklyJSONArray = jsonObject.getJSONObject("properties").getJSONArray("periods");
                 //System.out.println(weeklyJSONArray);
 
-                for (int i=0; i < weeklyJSONArray.length(); i++) {
-                    JSONObject dayJsonObject = weeklyJSONArray.getJSONObject(i);
+                if (dayName.equals("Today")) {
+                    JSONObject dayJsonObject = weeklyJSONArray.getJSONObject(0);
                     //Populate TextView
-                    if(dayJsonObject.getString("name").equals(dayName)){
-                        TextView dayLabel = getActivity().findViewById(R.id.day_label);
-                        TextView shortForecastContent = getActivity().findViewById(R.id.short_forecast_content);
-                        TextView detailedForecastContent = getActivity().findViewById(R.id.detailed_forecast_content);
 
-                        dayLabel.setText(dayName);
-                        shortForecastContent.setText(dayJsonObject.getString("shortForecast"));
-                        detailedForecastContent.setText(dayJsonObject.getString("detailedForecast"));
+                    TextView dayLabel = getActivity().findViewById(R.id.day_label);
+                    TextView shortForecastContent = getActivity().findViewById(R.id.short_forecast_content);
+                    TextView detailedForecastContent = getActivity().findViewById(R.id.detailed_forecast_content);
+                    TextView windSpeedContent = getActivity().findViewById(R.id.windSpeed_content);
+                    TextView windDirectionContent = getActivity().findViewById(R.id.windDirection_content);
+
+                    dayLabel.setText(dayName);
+                    shortForecastContent.setText(dayJsonObject.getString("shortForecast"));
+                    detailedForecastContent.setText(dayJsonObject.getString("detailedForecast"));
+                    windSpeedContent.setText(dayJsonObject.getString("windSpeed"));
+                    windDirectionContent.setText(dayJsonObject.getString("windDirection"));
+
+                } else {
+                    for (int i = 0; i < weeklyJSONArray.length(); i++) {
+                        JSONObject dayJsonObject = weeklyJSONArray.getJSONObject(i);
+                        //Populate TextView
+                        if (dayJsonObject.getString("name").equals(dayName)) {
+                            TextView dayLabel = getActivity().findViewById(R.id.day_label);
+                            TextView shortForecastContent = getActivity().findViewById(R.id.short_forecast_content);
+                            TextView detailedForecastContent = getActivity().findViewById(R.id.detailed_forecast_content);
+                            TextView windSpeedContent = getActivity().findViewById(R.id.windSpeed_content);
+                            TextView windDirectionContent = getActivity().findViewById(R.id.windDirection_content);
+
+
+                            dayLabel.setText(dayName);
+                            shortForecastContent.setText(dayJsonObject.getString("shortForecast"));
+                            detailedForecastContent.setText(dayJsonObject.getString("detailedForecast"));
+                            windSpeedContent.setText(dayJsonObject.getString("windSpeed"));
+                            windDirectionContent.setText(dayJsonObject.getString("windDirection"));
+                        }
 
                     }
 

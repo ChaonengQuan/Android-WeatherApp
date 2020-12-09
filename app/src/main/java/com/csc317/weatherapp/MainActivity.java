@@ -30,7 +30,6 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private DisplayFragment weatherDisplay;
-    private TabletForecastFragment tabletForecastFragment;
     private ContactSelectFragment contactSelectFragment;
     private Uri screenshotUri = null;
     private String latitude = "32.2226";
@@ -40,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weatherDisplay = new DisplayFragment();
-        tabletForecastFragment = new TabletForecastFragment();
+        TabletForecastFragment tabletForecastFragment = new TabletForecastFragment();
+        tabletForecastFragment.setDayName("Today");
+        tabletForecastFragment.setLongitude(longitude);
+        tabletForecastFragment.setLatitude(latitude);
         weatherDisplay.setLatitude(latitude);
         weatherDisplay.setLongitude(longitude);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -50,7 +52,12 @@ public class MainActivity extends AppCompatActivity {
         }
         //transaction.addToBackStack(null);
         transaction.commit();
-        setContentView(R.layout.activity_main);
+
+        if(isBigScreen()){
+            setContentView(R.layout.activity_main);
+        }else{
+            setContentView(R.layout.activity_main_small);
+        }
     }
 
     private boolean isBigScreen() {
@@ -140,7 +147,11 @@ public class MainActivity extends AppCompatActivity {
         tabletForecastFragment.setLatitude(latitude);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.weather_layout_container, tabletForecastFragment);
+        if(isBigScreen()){
+            transaction.replace(R.id.tablet_forecast_container, tabletForecastFragment);
+        }else{
+            transaction.replace(R.id.weather_layout_container, tabletForecastFragment);
+        }
         transaction.addToBackStack(null);   //can return to drawing
         transaction.commit();
     }
