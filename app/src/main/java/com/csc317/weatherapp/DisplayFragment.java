@@ -144,7 +144,7 @@ public class DisplayFragment extends Fragment {
                 String gridX = properties.getString("gridX");
                 String gridY = properties.getString("gridY");
 
-                System.out.println(gridID + ", " + gridX + "," + gridY);
+                //System.out.println(gridID + ", " + gridX + "," + gridY);
 
                 /*Make the 2nd API call to get the weather information*/
                 StringBuilder json = new StringBuilder();
