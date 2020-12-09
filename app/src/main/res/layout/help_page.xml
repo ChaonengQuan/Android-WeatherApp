@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,63 +8,76 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/day_label"
-        android:text="Today"
+        android:id="@+id/help_label"
+        android:text="Help"
         android:textSize="40dp"
         android:textColor="@color/black"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/short_forecast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/general_use_label"
+        android:text="General Use"
+        android:textSize="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_label" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/general_use"
+        android:text="@string/general_use"
         android:textSize="20dp"
-        android:text="Short forecast"
         android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/day_label" />
+        app:layout_constraintTop_toBottomOf="@id/general_use_label" />
 
     <TextView
-        android:id="@+id/short_forecast_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="placeholder"
+        android:id="@+id/search_label"
+        android:text="Search Function"
+        android:textSize="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:padding="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/short_forecast" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/general_use" />
 
     <TextView
-        android:id="@+id/detailed_forecast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/search_desc"
+        android:text="@string/search_description"
         android:textSize="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Detailed forecast"
         android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/short_forecast_content" />
+        app:layout_constraintTop_toBottomOf="@id/search_label" />
 
     <TextView
-        android:id="@+id/detailed_forecast_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/share_label"
+        android:text="Share Function"
+        android:textSize="30dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:padding="20dp"
         android:layout_marginTop="20dp"
-        android:text="Detailed forecast content"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailed_forecast" />
+        app:layout_constraintTop_toBottomOf="@+id/search_desc" />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/share_desc"
+        android:text="@string/share_description"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/share_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

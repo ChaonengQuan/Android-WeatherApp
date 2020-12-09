@@ -60,6 +60,7 @@ public class DisplayFragment extends Fragment {
     }
 
 
+
     private class WeatherDownloadIcon extends AsyncTask<URL, Integer, Long> {
 
         /**
