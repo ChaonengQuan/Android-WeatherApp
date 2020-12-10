@@ -3,16 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/background_forecast"
+        android:alpha=".5" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/city_label"
         android:text="Tucson"
         android:textSize="40dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/help_button"
+        android:text="HELP"
+        android:onClick="showHelp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,6 +37,7 @@
         android:id="@+id/temperature"
         android:text="80&#xb0;"
         android:textSize="100dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/city_label"/>
@@ -39,9 +57,11 @@
         android:id="@+id/day_1_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toBottomOf="@id/weather_icon"/>
+        app:layout_constraintTop_toBottomOf="@id/weather_icon"
+        android:onClick="showDetailedForecast"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,6 +69,7 @@
         android:id="@+id/day_1_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/weather_icon"/>
@@ -58,9 +79,11 @@
         android:id="@+id/day_2_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toBottomOf="@id/day_1_name"/>
+        app:layout_constraintTop_toBottomOf="@id/day_1_name"
+        android:onClick="showDetailedForecast"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -68,6 +91,7 @@
         android:id="@+id/day_2_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_1_temp"/>
@@ -77,9 +101,11 @@
         android:id="@+id/day_3_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toBottomOf="@id/day_2_name"/>
+        app:layout_constraintTop_toBottomOf="@id/day_2_name"
+        android:onClick="showDetailedForecast"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -87,6 +113,7 @@
         android:id="@+id/day_3_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_2_temp"/>
@@ -96,9 +123,11 @@
         android:id="@+id/day_4_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toBottomOf="@id/day_3_name"/>
+        app:layout_constraintTop_toBottomOf="@id/day_3_name"
+        android:onClick="showDetailedForecast"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -106,6 +135,7 @@
         android:id="@+id/day_4_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_3_temp"/>
@@ -115,9 +145,11 @@
         android:id="@+id/day_5_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toBottomOf="@id/day_4_name"/>
+        app:layout_constraintTop_toBottomOf="@id/day_4_name"
+        android:onClick="showDetailedForecast"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -125,6 +157,7 @@
         android:id="@+id/day_5_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_4_temp"/>
@@ -134,9 +167,11 @@
         android:id="@+id/day_6_name"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="20dp"
-        app:layout_constraintTop_toBottomOf="@id/day_5_name"/>
+        app:layout_constraintTop_toBottomOf="@id/day_5_name"
+        android:onClick="showDetailedForecast"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -144,6 +179,7 @@
         android:id="@+id/day_6_temp"
         android:text="Placeholder"
         android:textSize="30dp"
+        android:textColor="@color/black"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="20dp"
         app:layout_constraintTop_toBottomOf="@id/day_5_temp"/>
@@ -154,9 +190,28 @@
         android:id="@+id/share_button"
         android:text="SHARE"
         app:layout_constraintTop_toBottomOf="@id/day_6_name"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:onClick="shareButtonOnClick"/>
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="City Name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/share_button"
+        app:layout_constraintRight_toLeftOf="@id/search"/>
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="searchWeatherByCity"
+        android:text="search"
+        app:layout_constraintTop_toBottomOf="@+id/share_button"
+        app:layout_constraintLeft_toRightOf="@id/edit_text"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

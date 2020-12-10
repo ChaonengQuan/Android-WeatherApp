@@ -24,6 +24,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".HelpActivity">
+            
+        </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.csc317.weatherapp.fileprovider"

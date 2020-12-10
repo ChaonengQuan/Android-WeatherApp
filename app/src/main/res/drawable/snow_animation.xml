@@ -1,0 +1,26 @@
+<animation-list android:id="@+id/selected"
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/snow0" android:duration="50" />
+    <item android:drawable="@drawable/snow1" android:duration="50" />
+    <item android:drawable="@drawable/snow2" android:duration="50" />
+    <item android:drawable="@drawable/snow3" android:duration="50" />
+    <item android:drawable="@drawable/snow4" android:duration="50" />
+    <item android:drawable="@drawable/snow5" android:duration="50" />
+    <item android:drawable="@drawable/snow6" android:duration="50" />
+    <item android:drawable="@drawable/snow7" android:duration="50" />
+    <item android:drawable="@drawable/snow8" android:duration="50" />
+    <item android:drawable="@drawable/snow9" android:duration="50" />
+    <item android:drawable="@drawable/snow10" android:duration="50" />
+    <item android:drawable="@drawable/snow11" android:duration="50" />
+    <item android:drawable="@drawable/snow12" android:duration="50" />
+    <item android:drawable="@drawable/snow13" android:duration="50" />
+    <item android:drawable="@drawable/snow14" android:duration="50" />
+    <item android:drawable="@drawable/snow15" android:duration="50" />
+    <item android:drawable="@drawable/snow16" android:duration="50" />
+    <item android:drawable="@drawable/snow17" android:duration="50" />
+    <item android:drawable="@drawable/snow18" android:duration="50" />
+    <item android:drawable="@drawable/snow19" android:duration="50" />
+    <item android:drawable="@drawable/snow20" android:duration="50" />
+    <item android:drawable="@drawable/snow21" android:duration="50" />
+</animation-list>

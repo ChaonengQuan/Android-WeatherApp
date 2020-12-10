@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="general_use">This app provides a forecast for your current location, as well as a seven day forecast. The current temperature is displayed, in degrees Fahrenheit. There is also an icon to show the current weather, and the background will change to reflect weather conditions. The help button opens this page.</string>
+    <string name="search_description">The search functionality allows the user to search for the forecast of a specific city. The app supports city forecasts in any US city.</string>
+    <string name="share_description">The app allows the user to send the forecast to a person in their contacts via email. The share button opens the contacts for the user to peruse.</string>
 </resources>
